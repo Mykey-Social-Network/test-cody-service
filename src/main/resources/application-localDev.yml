@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: service-template-localDev
+  config:
+    import: configtree:/Users/shlomobolotin/secrets/dev/
+
+logging:
+  level:
+    com:
+      mykeyapi: TRACE
+      kafka:
+        streams : DEBUG
+
+server:
+  port: 9003
+
+app-properties:
+  partitions: 1
+  replications: 1
+  useInMemoryStore: true
+

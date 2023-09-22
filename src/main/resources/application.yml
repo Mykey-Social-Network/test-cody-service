@@ -1,0 +1,56 @@
+spring:
+  config:
+    import: app-properties.properties
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  kafka:
+    properties:
+      session:
+        timeout:
+          ms: '45000'
+      auto:
+        register:
+          schemas: true
+    streams:
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$ByteArraySerde
+        spring.json.trusted.packages: "*"
+        default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
+      application-id: ${spring.application.name}-v0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health ,prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: readinessState , kafkaStreamsReadiness
+        liveness:
+          include: kafkaStreamsHealthCheck
+
+
+# todo: edit
+springdoc:
+  api-docs.path: /template/api-docs
+  swagger-ui.path: /template/swagger-ui.html
+
+
+server:
+  shutdown: graceful
+  netty:
+    connection-timeout: 2s
+    idle-timeout: 15s
+  port: 9001
+
+app-properties:
+  partitions: 1
+  replications: 3
+  useInMemoryStore: false

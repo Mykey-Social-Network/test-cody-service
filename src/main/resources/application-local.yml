@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: app-properties.properties, configtree:secrets/
+  kafka:
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8081
+app-properties:
+  partitions: 1
+  replications: 1
+  useInMemoryStore: true

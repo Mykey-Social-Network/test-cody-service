@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: app-properties.properties
+  kafka:
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8081
+
+
+jwt:
+  public_key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8lnQZMLSuwswXM0Clx+wTl0I5jHVnItBXJ/hxV+JtHKep5bQOmt8CkxW+P8B8tGq2unxN7C1KYQ6nk748myiK5ist3642emDvWUbDu36b4r9hSyYgqbEZ16INqRgIhY2m/MO7k9PVrOuwJFRDKE/o3+WpyYF2Kcai0A/+W6XbbD59AjSghGq5sWqLiM5cFCetZTgSzyWvxYUH6QnPAcNS0/VvyZ9pRz0cTZSrj+E6vhUMF8xEMAOu2wwiO42Kot5ORr7pSoSDuyzW/JYVrTIkddnfe+hNE2cAwTLrikM7Nv6nT7L5uMRyDPDMRj/KUr+p6TxqpRDxjGkdoRBYsUmcQIDAQAB"

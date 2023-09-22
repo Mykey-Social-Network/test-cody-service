@@ -1,0 +1,17 @@
+syntax = "proto3";
+package com.mykeyapi.models;
+
+message EventTemplate{
+  string eventId = 1;
+  string timestamp = 2;
+
+  oneof event {
+    EventCreatedTemplate eventCreated = 3;
+    EventDeletedTemplate eventDeleted = 4;
+  }
+
+
+  message EventCreatedTemplate{}
+  message EventDeletedTemplate{}
+}
+
